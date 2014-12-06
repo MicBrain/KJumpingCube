@@ -19,3 +19,6 @@ Here are all the rules of this game:
 9. If a move leaves a neighbor with a maximum number of points, the move continues automatically to the neighbor's neighbors and so on, in a cascade. A large number of cubes can change ownership during such a move.
 10. The winner is the player who ends up owning all the cubes.
 11. You can use settings to select board size, computer players and players' colors. You can also pit one computer player against another and watch the outcome.
+
+### References
+1. https://docs.kde.org/stable/en/kdegames/kjumpingcube/rules_and_tips.html
