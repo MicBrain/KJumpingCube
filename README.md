@@ -23,4 +23,9 @@ Here are all the rules of this game:
 11. You can use settings to select board size, computer players and players' colors. You can also pit one computer player against another and watch the outcome.
 
 ### References
-1. https://docs.kde.org/stable/en/kdegames/kjumpingcube/rules_and_tips.html
+1. https://games.kde.org/game.php?game=kjumpingcube
+2. https://docs.kde.org/stable/en/kdegames/kjumpingcube/kjumpingcube.pdf
+3. https://www.youtube.com/watch?v=kF7foeCNJlI
+4. http://www.gamespot.com/kjumpingcube/
+5. https://inst.eecs.berkeley.edu/~cs61b/fa14/hw/proj2.pdf
+6. https://docs.kde.org/stable/en/kdegames/kjumpingcube/rules_and_tips.html
