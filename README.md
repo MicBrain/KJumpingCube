@@ -2,7 +2,9 @@ KJumpingCube
 ============
 
 ### Game Description
-KJumpingCube is a simple dice driven tactical game. It is a pure strategy game, involving no element of chance. The playing area consists of squares containing points. Players move by clicking on either a vacant square, or on own square. This version of KJumpingCube allows a user to play against another user or against a computer, or allows computer to play itself.
+   KJumpingCube is a simple dice driven tactical game. It is a pure strategy game, involving no element of chance. The playing area consists of squares containing points. Players move by clicking on either a vacant square, or on own square. This version of KJumpingCube allows a user to play against another user or against a computer, or allows computer to play itself.
+
+   The playing area is a box of cubes containing points. When the game starts each cube has one point, no owner and a neutral color. If you click on a neutral cube it becomes yours, changes to your color and increases by one point. Your objective is to capture all the cubes, but now it is your opponent's turn. Players move and add points by clicking on neutral cubes or their own cubes.
 
 ### Rules
 
