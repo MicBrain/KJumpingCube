@@ -1,0 +1,28 @@
+Commands may be in any mixture of case.  You may abbreviate commands
+(but not moves) with any unique prefix (e.g., 'c' for 'clear').
+Commands:
+  <row> <column>   Put piece on given row and column (integers, row 1 is
+                   topmost, column 1 is leftmost).
+  board            Print a version of the board with row and column numbers.
+  clear            Stop any game.  Clear board to starting position.
+  size <N>         Stop any game, set game board to N on a side, and clear the
+                   board to the starting position.
+  start            Start a new game or restart a suspended one.
+  new              Short for clear followed by start.
+  auto <P>         Stop any game.  Player <P>'s moves (<P>=Red or Blue)
+                   will be made by an an automated (AI) player when game
+                   (re)starts.  By default, Blue is an AI.
+  manual <P>       Stop any game. Player <P>'s moves will be taken from
+                   the terminal when game (re)starts. By default, Red is
+                   a manual player.
+  set <r> <c> <n> <color>
+                   Stop any current game.  Place <n> spots of the indicated
+                   <color> (b, r, B, or R) on row <r>, column <c>.
+  dump             Print board state in a standard format.
+  seed <N>         Seed the pseudo-random number generator used by automated
+                   players to <N>.  Identical seeds cause identical sequeces
+                   of responses to the same inputs.
+  verbose          Display the board after each move.
+  quiet            Don't display the board after each move.
+  quit             Quit game.
+  help             Print this message.

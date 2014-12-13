@@ -1,0 +1,15 @@
+# Test of unknown command.  Program should not crash, and boards should be
+# correct.
+java -ea jump61.Main
+None
+===#1===
+clank
+manual Blue
+start
+1 1
+zap
+dump
+quit
+===#2===
+
+

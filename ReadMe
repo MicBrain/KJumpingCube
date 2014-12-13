@@ -1,0 +1,191 @@
+Version 3.0 7/31/2014
+
+This directory contains a skeleton for CS61B Project 2.
+
+Although some of what's in here might seem mysterious to you, try to 
+understand what it's all for.  Don't be afraid to ask us about it.
+
+GENERAL NOTE:  EVERYTHING in these files is changeable as you see fit, unless
+   otherwise noted.  Your task is to conform to the spec, period.  While
+   we have suggested, with these files, certain points about the design, we
+   don't require any of it.  
+
+CONTENTS:
+---------
+
+README                 This file.  You need not turn this in.
+        
+Makefile               For those of you using the standard Unix tool chain
+                       rather than Eclipse, this file provides for some
+                       simple compilation/testing control.  See the 
+                       comments in it for the targets provided.  Those of
+                       you using Eclipse will need it on the instructional
+                       machines (the commands 'make' and 'make check' must
+                       work correctly on your submission, regardless of
+                       which editor or IDE you used).
+
+staff-version          If we update the skeleton, this file will contain a
+                       unique version id indicating what version of the
+                       skeleton is currently in use.
+
+
+jump61/
+
+    Makefile           A simple makefile that delegates all requests to
+                       the outer directory's makefile.
+                        
+    Main.java          Entry point to program. You may modify this if you
+                       want, but it will work as it stands.
+    UnitTest.java      Main unit-test file, which calls any others.
+
+
+    The following files in jump61 are all optional.  Use them if you see fit,
+    and remove any you don't use.
+
+
+    Side.java           Defines symbolic names for the colors of squares
+                        and players.
+
+    Board.java          The superclass of playing boards.
+    Square.java         Used in Board to represent the contents of a single
+                        square.
+
+    ConstantBoard.java  A type of Board that delegates operations to another
+                        Board and does not allow operations that modify a
+                        Board.
+
+    MutableBoard.java   A type of Board whose contents can be changed.
+
+    Game.java           Abstracts the complete state of a game and
+                        solicits moves from Players.
+
+    Player.java         The superclass of all types of Players.  A Player is
+                        something that makes moves.
+
+    HumanPlayer.java    Represents a player who sits at the terminal typing
+                        moves.
+
+    AI.java             An automated (AI) player.
+
+    Defaults.java       Gathering place for default parameters.
+
+    GameException.java  Used for internal signalling of user errors,
+
+    Display.java        A class representing the GUI (use optional).
+    BoardWidget.java    Used in the GUI to display the actual board.
+
+    Usage.txt           A resource containing a Usage message.
+    Help.txt            A resource containing a summary of commands.
+
+    BoardTest.java      Some unit tests on Boards.
+
+testing/
+
+    Makefile            A Makefile for controlling testing.  The command
+                        make check runs the test script over all test cases.
+
+    ReadMe              An explanation of test-jump61's input format.
+
+    test00-1.in         Simple test, showing the format of test files.
+                        REMINDER: This is a sample only.  It DOESN'T 
+                        constitute an adequate test.  
+    test00-1.out        Expected boards output from test00-1.in
+
+    test00-err-1.in     Simple input containing erroneous commands.  The
+                        program must report and ignore these commands without
+                        crashing.
+    test00-err-1.out    Expected boards output by the 'dump' command in
+                        command1.in
+
+
+MERGING CHANGES:
+----------------
+
+If and when we publish new versions of the skeleton, you may want to 
+incorporate those changes in your project.  This is known as "merging".
+Basically, it works like this:
+
+   0. Commit your current files (as with 'hw commit'). NEVER start
+      merging files until you have done this successfully!!!
+   1. Compute the set of differences between the version of the skeleton
+      from which your current code comes and the current version of the
+      skeleton.
+   2. Try to apply these differences to your current code.
+   3. Where the changes in the skeleton overlap your changes, there are
+      "merge conflicts".  Edit the files containing these conflicts and
+      resolve the conflict as appropriate.
+   4. When done, mark the files as no longer being conflicted.
+   5. Commit the new version of your files.  Again, NEVER do
+      additional editing until you have successfully committed.
+
+This process is so common that all widely used version-control systems
+support it with one or more commands.  In Subversion, this is the 'svn
+merge' command.  Rather than have you confront this directly, we've
+introduced the command 'mergeskel' to do steps 1 and 2 and
+'resolveskel' to do step 4.  So,
+
+   A. Put yourself in your project working directory first.
+   B. Commit any changes (hw commit)
+   C. Run mergeskel
+   D. Edit out any conflicts (hw status will tell you which files 
+      have conflicts).
+   E. Run resolveskel, which tells Subversion that the conflicts are 
+      fixed (it otherwise will not let you commit.)
+   F. Commit the results.
+
+If you have files lying around with names like "FOO.merge-right.r1234", you
+haven't resolved something.
+
+=====================
+
+More Details [optional]
+---- ------- ----------
+
+The rest of this section explains the full version of what's really
+going on.  We store copies of all versions of the skeleton in staff
+repository files called (on the instructional machines)
+
+       $STAFFREPOS/tags/projN-V
+
+where projN is the project (e.g., proj1) and V is a version number
+(starting at 0).  The current version of the skeleton is in
+
+       $STAFFREPOS/projN
+
+The file staff-version in your project directory, if present, contains the
+the tag name of that skeleton (if it isn't present, the tag name is projN-0,
+as in proj1-0).
+
+In a project working directory, say proj1, after committing all your
+current files, you (or mergeskel) merge in a new version of the
+skeleton (on the instructional machines) by first figuring out (using
+staff-version, if present) what was the last version you updated to.
+Suppose this is proj1-0.  Now you enter the commands
+
+        svn merge --accept=postpone $STAFFREPOS/tags/proj1-0 $STAFFREPOS/proj1
+
+This produces some progress messages, possibly including some messages
+about conflicts.  If there are no conflicts, you can simply commit your files
+and you are done.
+
+Otherwise, each file with conflicts will have sections like this
+
+    <<<<<<< .working
+         System.out.println ("Welcome to my project");
+         initialize ();
+    =======
+         initialize (args);
+    >>>>>>> .merge-right.r1009
+
+The part before the ======= was in your file to start with.  The part after 
+======= is from the updated version of the skeleton.  Choose which you
+want to use, or what combination you want to use and edit accordingly.
+Then remove the marker lines (<<<<, >>>>, ====) and save.  Do this for 
+all conflicted files.  Finally, you (or resolveskel) can run the command 
+
+    svn resolved --accept working <FILE>
+
+for each <FILE> you have resolved in this way.  If you've done this
+right, 'hw status' will no longer show conflicts (just modified
+files).  Now commit your work and you're done.
+

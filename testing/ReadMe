@@ -1,0 +1,54 @@
+Notes on test-jump61.
+
+The .in files instruct test-jump61b how to perform a test.
+
+* Lines that start with "#" are comments.
+
+* The first two non-comment lines are Unix commands for running an
+  instance of the jump61b program.  It's possible to run either one or
+  two programs.  To run just one program, use "None" as the second line.
+
+* After the two command lines there are two sections, starting with the
+  headers "===#1===" and "===#2===".  The lines in these sections are fed
+  as the standard input respectively to two programs (any input in section
+  #2 is ignored if the second command is None).
+
+* When there are two programs, they are expected to be playing each other.
+  Certain of the lines in the two input sections are interpreted specially
+  to accommodate this:
+
+    + %ib  Wait for a blue move from the other program and insert it here.
+           (A "blue move" is a line such as "Blue moves 3 2.", as specified
+           in the spec).
+    + %ir  Wait for a red move from the other program and insert it here.
+    + %mb  Wait for this program to print a blue move, and send it to
+           the other program.
+    + %mr  Wait for this program to print a red move, and send it to
+           the other program.
+    + %br  Wait for a sequence of alternating blue and red moves from
+           this program (playing itself), starting with blue, up to an
+           announcement of a winner.
+    + %rb  As for %br, but starting with a red move.
+    + %ib... As for %ib, and then wait for a red move from this
+           program, send it to the other program, and then repeat
+           these steps up to an announcement of a winner.
+    + %ir... As for %ir, and then wait for a blue move from this
+           program, send it to the other program, and then repeat
+           these steps up to an announcement of a winner.
+    + %e   Indicates a point where test-jump61 expects an announcement
+           of a winner (for either side).
+    + %eb  As for %e, but expects to see "Blue wins."
+    + %er  As for %e, but expects to see "Red wins."
+    + %ae  As for %e, but also prints winner.
+
+
+The .out files tell test-jump61 what the relevant outputs of the two
+programs should be.  Under the headings "Program #1:" (and, for two
+programs, "Program #2:"), it shows all output from the respective
+programs that conforms to the specified format for dumps (surrounded
+by "==="), and it shows all lines that match the %ae specifier described
+above.  Other output lines are filtered out.  Test-jump61 compares these
+.out files with the actual outputs produced by the programs being tested.
+
+
+
